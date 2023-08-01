@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 sentry_sdk.init(
-    dsn="https://5a59dfdc3a5b42f2b67dd24cfa0688d9@o4505586131468288.ingest.sentry.io/4505586139398144",
+    dsn=os.getenv("dsn"),
     integrations=[
         DjangoIntegration(),
     ],
@@ -19,9 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = False
+DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ['62.84.123.210', '127.0.0.1', 'localhost', 'sin1cka.ddns.net']
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 
 
 # Application definition
